@@ -24,7 +24,7 @@ while [ "$1" != "" ]; do
     esac
 done
 
-echo "largefolders.sh - find LARGErge folders"
+echo "largefolders.sh - find LARGE folders"
 echo "Looking in $FOLDER_PATH..."
 echo "Levels: $NUM_LEVELS"
 # exit 0
