@@ -4,6 +4,32 @@ NUM_ITEMS=30
 NUM_LEVELS=3
 CURRENT_LEVEL=1
 
+# Customary usage Functions
+usage() {
+    echo "usage: largefolders.sh path [[[-l]]"
+}
+
+# Process command line options
+
+FOLDER_PATH=$1
+shift
+
+while [ "$1" != "" ]; do
+    case $1 in
+        -l | --levels ) 
+            NUM_LEVELS=$2
+        shift 2;;
+        * ) usage
+            exit 1
+    esac
+done
+
+echo "largefolders.sh - find LARGErge folders"
+echo "Looking in $FOLDER_PATH..."
+echo "Levels: $NUM_LEVELS"
+# exit 0
+
+
 find_large_folders() 
 {
 
@@ -52,8 +78,8 @@ function is_empty {
  [ "$1/"..?* = "$1/..?*" ]  2> /dev/null && [ ! -e "$1/..?*" ]
 }
 
-opsizelist=$(du -skh $1* | sort -hr | head -$NUM_ITEMS | awk '{printf "%s,",$1}')
-opfolderlist=$(du -skh $1* | sort -hr | head -$NUM_ITEMS | awk '{printf "%s,",$2}')
+opsizelist=$(du -skh $FOLDER_PATH* | sort -hr | head -$NUM_ITEMS | awk '{printf "%s,",$1}')
+opfolderlist=$(du -skh $FOLDER_PATH* | sort -hr | head -$NUM_ITEMS | awk '{printf "%s,",$2}')
 
 OIFS="$IFS"
 IFS=','
