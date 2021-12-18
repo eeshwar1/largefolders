@@ -27,8 +27,6 @@ done
 echo "largefolders.sh - find LARGE folders"
 echo "Looking in $FOLDER_PATH..."
 echo "Levels: $NUM_LEVELS"
-# exit 0
-
 
 find_large_folders() 
 {
@@ -46,7 +44,6 @@ find_large_folders()
     IFS="$OIFS"
 
     ((_current_level=_current_level+1))
-    
 
     _pre_str=''
     for ((_l=0; _l<_current_level; ++_l));
