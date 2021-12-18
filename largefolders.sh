@@ -6,7 +6,7 @@ CURRENT_LEVEL=1
 
 # Customary usage Functions
 usage() {
-    echo "usage: largefolders.sh path [[[-l]]"
+    echo "usage: largefolders.sh path [[[-l levels]]"
 }
 
 # Process command line options
